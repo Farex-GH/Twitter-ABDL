@@ -17,7 +17,9 @@ python downloader.py --username "your-username" --password "your-password" --lik
 
 ## Running
 
-Running `python downloader.py -h` will give you a list of options. You can use the example usage above, or specify `--finish_on_name "base-64-image-name.jpg"` or `--finish_on_url 'https://pbs.twimg.com/media/base64-name?format=jpg&name=large'` to stop downloading images when a specific link or image is found. Otherwise the script will run until it reaches the bottom of the page and infinite scrolling stops working.
+Running `python downloader.py -h` will give you a list of options, with some descriptions on how to use them.
+
+You can use the example usage above, or specify `--finish_on_name "base-64-image-name.jpg"` or `--finish_on_url 'https://pbs.twimg.com/media/base64-name?format=jpg&name=large'` to stop downloading images when a specific link or image is found. Otherwise the script will run until it reaches the bottom of the page and infinite scrolling stops working.
 
 ## Known Issues
 
