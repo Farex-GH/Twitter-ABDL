@@ -61,7 +61,6 @@ class Downloader:
         elem.send_keys(self.password)
         elem.send_keys(Keys.RETURN)
 
-    # TODO: Get gifs/vids too
     def get_image_links(self):
         img_elems = self.driver.find_elements(By.XPATH, "//img[@class='css-9pa8cd'][@alt='Image']")
         image_link = namedtuple('ImageLink', 'url image_name')
@@ -77,19 +76,19 @@ class Downloader:
                 print("Tried to parse a stale element on element " + image.id)
                 continue
 
-            # Trim off the &format=small at the end.
+            # Trim off the '&format=small' at the end.
             image_url = image_url.partition("&name=")[0]
             extension = image_url.partition("?format=")[-1]
-            # Grab /base64-image-name?format=jpg
+            # Grab '/base64-image-name?format=jpg'
             start_index = image_url.rindex("/")
-            # /base64-image-name
+            # '/base64-image-name'
             end_index = image_url.rindex("?")
-            # base64-image-name
+            # 'base64-image-name'
             image_name = image_url[1+start_index:end_index]
-            # base64-image-name.extension
+            # 'base64-image-name.extension'
             image_name += ("." + extension)
 
-            # Add &name=large to grab the full resolution image.
+            # Add '&name=large' to grab the full resolution image.
             image_url += "&name=large"
 
             img = image_link(image_url, image_name)
@@ -116,9 +115,9 @@ class Downloader:
                 print("Tried to parse a stale element on element " + video.id)
                 continue
 
-            # Grab /base64-video-name.mp4
+            # Grab '/base64-video-name.mp4'
             start_index = video_url.rindex("/")
-            # base64-video-name.mp4
+            # 'base64-video-name.mp4'
             video_name = video_url[1+start_index:]
 
             video = video_link(video_url, video_name)
