@@ -46,7 +46,7 @@ class Downloader:
         self.driver.maximize_window()
 
     def __del__(self):
-        self.driver.close()
+        self.driver.quit()
 
     def login(self):
         # Send username
