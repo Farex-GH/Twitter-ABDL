@@ -1,10 +1,17 @@
 # Twitter ABDL (Automatic Bulk DownLoader)
 
-Downloads liked images and videos from a user's page.
+Downloads liked images and videos or media from a user's page.
 
 Example usage
+
+For downloading a user's liked images and videos
 ```
 python downloader.py --username "your-username" --password "your-password" --likes_page "https://twitter.com/someone/likes" --download_path "./output" 
+```
+
+For downloading a user's images and videos they've uploaded
+```
+python downloader.py --username "your-username" --password "your-password" --likes_page "https://twitter.com/someone/media" --download_path "./output" 
 ```
 
 ## Installation
