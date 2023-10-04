@@ -1,4 +1,4 @@
-# Twitter Likes Downloader
+# Twitter ABDL (Automatic Bulk DownLoader)
 
 Downloads liked images and videos from a user's page.
 
