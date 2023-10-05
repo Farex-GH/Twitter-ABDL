@@ -14,17 +14,17 @@ import argparse
 class Downloader:
     username = ""
     password = ""
-    likes_page = ""
+    page = ""
     download_path = ""
     finish_on_url = ""
     finish_on_name = ""
     driver = any
     wait = any 
 
-    def __init__(self, username, password, likes_page, download_path=".", finish_on_url="", finish_on_name = ""):
+    def __init__(self, username, password, page, download_path=".", finish_on_url="", finish_on_name = ""):
         self.username = username
         self.password = password
-        self.likes_page = likes_page
+        self.page = page
         self.download_path = download_path
         self.finish_on_url = finish_on_url
         self.finish_on_name = finish_on_name
@@ -35,14 +35,14 @@ class Downloader:
 
         # Grab the web page
         self.driver = webdriver.Firefox()
-        self.driver.get(likes_page)
+        self.driver.get(page)
         assert "Twitter" in self.driver.title
         # Init element waiting timeout
         self.wait = WebDriverWait(self.driver, 5)
         # We need this so each transaction has time to load, but don't make it too long.
         # If it's too long, the timeout when looking for videos is also long and annoying.
         self.driver.implicitly_wait(1)
-        # Put the likes on full display. Have no shame.
+        # Put the page on full display. Have no shame.
         self.driver.maximize_window()
 
     def __del__(self):
@@ -174,21 +174,21 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--username", type=str, help="The username of your Twitter account")
     parser.add_argument("-p", "--password", type=str, help="The password of your Twitter account")
-    parser.add_argument("--likes_page", type=str, help="The URL of the likes page you are trying to download from")
+    parser.add_argument("--page", type=str, help="The URL of the page you are trying to download from")
     parser.add_argument("--download_path", type=str, help="The path where you want images to be saved", default=".")
     parser.add_argument("--finish_on_url", type=str,
                         help="The URL the downloader will exit on when seen. " +
                         "Should be in the format of 'https://pbs.twimg.com/media/base64-name?format=jpg&name=large'. " +
-                        "Used to prevent downloading someone's entire likes page.", default="")
+                        "Used to prevent downloading someone's entire page.", default="")
     parser.add_argument("--finish_on_name", type=str,
                         help="The name of the image (plus extension) the downloader will exit on when seen. " +
                         "For example, on the URL 'https://pbs.twimg.com/media/base64-name?format=jpg&name=large', the " +
                         "image name will be 'base64-name.jpg'. " +
-                        "Used to prevent downloading someone's entire likes page.", default="")
+                        "Used to prevent downloading someone's entire page.", default="")
 
     args = parser.parse_args()
 
-    downloader = Downloader(args.username, args.password, args.likes_page, args.download_path,
+    downloader = Downloader(args.username, args.password, args.page, args.download_path,
                             args.finish_on_url, args.finish_on_name)
     downloader.login()
     downloader.download_images_until_done()

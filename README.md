@@ -6,12 +6,12 @@ Example usage
 
 For downloading a user's liked images and videos
 ```
-python downloader.py --username "your-username" --password "your-password" --likes_page "https://twitter.com/someone/likes" --download_path "./output" 
+python downloader.py --username "your-username" --password "your-password" --page "https://twitter.com/someone/likes" --download_path "./output" 
 ```
 
 For downloading a user's images and videos they've uploaded
 ```
-python downloader.py --username "your-username" --password "your-password" --likes_page "https://twitter.com/someone/media" --download_path "./output" 
+python downloader.py --username "your-username" --password "your-password" --page "https://twitter.com/someone/media" --download_path "./output" 
 ```
 
 ## Installation
