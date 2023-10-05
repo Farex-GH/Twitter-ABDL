@@ -19,6 +19,8 @@ For downloading a user's images and videos they've replied with
 python downloader.py --username "your-username" --password "your-password" --page "https://twitter.com/someone/with_replies" --download_path "./output" 
 ```
 
+Note that it is currently not possible to download images from someone's timeline.
+
 ## Installation
 
 1. Install Python and Pip from https://www.python.org/downloads/
