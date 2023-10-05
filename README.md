@@ -44,3 +44,11 @@ Some things that you may run into:
 2. It's slow. This is so it doesn't miss images. I've found that with scrolling more or with less delay it can cause images to be skipped.
 
 3. It may exit prematurely. I haven't actually ran into this, but it could happen in theory if Twitter takes several seconds to present new images. This is because the script thinks that there's nothing left to load.
+
+## TODO
+
+1. It is currently not possible from someone else's timeline.
+
+It's probably easy, however Twitter does not sometimes make you log in right away. Because of this, the `username` prompt that the downloader looks for never shows up and it cannot proceed.
+
+We need to either never log in, or scroll, eventually twitter tells us to log in, log in, then continue scrolling.
