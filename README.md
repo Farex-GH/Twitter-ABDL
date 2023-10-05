@@ -2,7 +2,7 @@
 
 Downloads liked images and videos or media from a user's page.
 
-Example usage
+## Example usage
 
 For downloading a user's liked images and videos
 ```
