@@ -14,6 +14,11 @@ For downloading a user's images and videos they've uploaded
 python downloader.py --username "your-username" --password "your-password" --page "https://twitter.com/someone/media" --download_path "./output" 
 ```
 
+For downloading a user's images and videos they've replied with
+```
+python downloader.py --username "your-username" --password "your-password" --page "https://twitter.com/someone/with_replies" --download_path "./output" 
+```
+
 ## Installation
 
 1. Install Python and Pip from https://www.python.org/downloads/
