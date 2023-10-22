@@ -36,7 +36,7 @@ class Downloader:
         # Grab the web page
         self.driver = webdriver.Firefox()
         self.driver.get(page)
-        assert "Twitter" in self.driver.title
+        assert "X" in self.driver.title
         # Init element waiting timeout
         self.wait = WebDriverWait(self.driver, 5)
         # We need this so each transaction has time to load, but don't make it too long.
